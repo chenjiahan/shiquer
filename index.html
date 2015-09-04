@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <title>识趣儿</title>
+    <meta name="description" content="识趣儿" />
+    <meta name="keywords" content="识趣儿" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="build/global.min.css"/>
+    <link href="src/img/favicon.ico" rel="shortcut icon"/>
+</head>
+<body>
+</body>
+<script>
+
+    function resizeImg(img) {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        var proportion = width / height;
+        var IMG_WIDTH = 2000;
+        var IMG_HEIGHT = 1200;
+        if(proportion > IMG_WIDTH / IMG_HEIGHT) {
+            img.height = height;
+        } else {
+            img.width = width;
+            img.style.height = 'auto';
+            img.style.marginTop = ( height - width / IMG_WIDTH * IMG_HEIGHT ) / 2 + 'px';
+        }
+    }
+
+    function init() {
+        if( window.innerWidth > 6000 ) {
+            var img = document.createElement('IMG');
+            img.className = 'web-index-bg';
+            img.src = 'http://7xiqne.com1.z0.glb.clouddn.com/web_index_bg.jpg';
+            resizeImg(img);
+            window.onresize = function() { resizeImg(img) };
+            document.body.appendChild(img);
+        } else {
+            document.body.className = 'mobile-index-bg';
+        }
+    };
+
+    init();
+
+</script>
+</html>
