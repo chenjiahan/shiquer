@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="stylesheet" href="build/global.min.css"/>
-    <link href="src/img/favicon.ico" rel="shortcut icon"/>
+    <link href="http://7xlnin.com1.z0.glb.clouddn.com/favicon.ico" rel="shortcut icon"/>
 </head>
 <body>
 </body>
@@ -30,15 +30,21 @@
     }
 
     function init() {
-        if( window.innerWidth > 6000 ) {
+        if( window.innerWidth > 600 ) {
             var img = document.createElement('IMG');
-            img.className = 'web-index-bg';
-            img.src = 'http://7xiqne.com1.z0.glb.clouddn.com/web_index_bg.jpg';
+            img.className = 'web-index-body';
+            img.src = 'http://7xlnin.com1.z0.glb.clouddn.com/web_index_body.png';
             resizeImg(img);
             window.onresize = function() { resizeImg(img) };
             document.body.appendChild(img);
+            document.body.className = 'web-index-bg';
         } else {
             document.body.className = 'mobile-index-bg';
+            var html = '<img src="http://7xlnin.com1.z0.glb.clouddn.com/mobile_header.png" class="mobile-header" />' +
+                       '<img src="http://7xlnin.com1.z0.glb.clouddn.com/mobile_middle.png" class="mobile-middle" />' +
+                       '<a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.bupt.shiqu" class="mobile-download">点击下载</a>' +
+                       '<img src="http://7xlnin.com1.z0.glb.clouddn.com/mobile_footer.png" class="mobile-footer" />';
+            document.body.innerHTML = html;
         }
     };
 
